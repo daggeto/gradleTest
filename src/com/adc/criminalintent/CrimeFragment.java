@@ -45,14 +45,10 @@ public class CrimeFragment extends Fragment {
 	private CheckBox mSolvedCheckBox;
 
     @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        ((CriminalIntentApp) getActivity().getApplication()).inject(this);
-    }
-
-    @Override
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
+
+        ((CriminalIntentApp) getActivity().getApplication()).inject(this);
 
 		UUID crimeId = (UUID) getArguments().getSerializable(EXTRA_CRIME_ID);
 		mCrime = crimeLab.getCrime(crimeId);

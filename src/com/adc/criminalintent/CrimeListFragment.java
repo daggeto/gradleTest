@@ -28,9 +28,7 @@ import javax.inject.Inject;
 public class CrimeListFragment extends ListFragment {
 
     @Inject CrimeLab crimeLab;
-    @Inject ListAdapter mAdapter;
 
-	private ArrayList<Crime> mCrimes;
 	private boolean mSubtitleVisible;
 	private static final String TAG = "CrimeListFragment";
 
@@ -43,12 +41,12 @@ public class CrimeListFragment extends ListFragment {
     @Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
 		setHasOptionsMenu(true);
-		getActivity().setTitle(R.string.crime_title);
 
-		mCrimes = crimeLab.getCrimes();
-		
+        getActivity().setTitle(R.string.crime_title);
+
+        setListAdapter(new CrimeListAdapter(this.getActivity()));
+
 		setRetainInstance(true);
 		mSubtitleVisible = false;
 

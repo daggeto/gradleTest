@@ -11,6 +11,7 @@ import android.widget.AbsListView;
 import com.adc.criminalintent.CrimeLab;
 import com.adc.criminalintent.CrimeListFragment;
 import com.adc.criminalintent.R;
+import com.adc.criminalintent.adapter.CrimeListAdapter;
 import com.adc.criminalintent.app.CriminalIntentApp;
 
 import javax.inject.Inject;
@@ -52,7 +53,7 @@ public class CrimeMultiChoiceModeListener implements AbsListView.MultiChoiceMode
     public boolean onActionItemClicked(ActionMode actionMode, MenuItem menuItem) {
         switch (menuItem.getItemId()){
             case R.id.menu_item_delete_crime:
-                CrimeListFragment.CrimeAdapter adapter = (CrimeListFragment.CrimeAdapter) fragment.getListAdapter();
+                CrimeListAdapter adapter = (CrimeListAdapter) fragment.getListAdapter();
                 for (int i = adapter.getCount() - 1; i >= 0; i--) {
                     if(fragment.getListView().isItemChecked(i)){
                         crimeLab.deleteCrime(adapter.getItem(i));

@@ -31,8 +31,4 @@ public class CriminalIntentModule {
     @Provides @Singleton CrimeLab provideCrimeLab(){
         return new CrimeLab(context);
     }
-
-    @Provides ListAdapter provideListAdapter(){
-        return new CrimeListAdapter()
-    }
 }
