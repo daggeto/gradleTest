@@ -1,0 +1,66 @@
+apply plugin: 'eclipse'
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:0.10.+'
+    }
+}
+
+repositories {
+    mavenCentral()
+    maven {
+        url 'C:\\Users\\daggreto\\.m2\\repository'
+    }
+}
+apply plugin: 'android'
+
+dependencies {
+    compile 'com.android.support:support-v4:18.0.+'
+    compile 'com.squareup.dagger:dagger:1.2.1'
+    compile 'com.squareup.dagger:dagger-compiler:1.2.1'
+}
+
+android {
+    compileSdkVersion 19
+    
+     sourceSets {
+        main {
+            manifest.srcFile 'AndroidManifest.xml'
+            java.srcDirs = ['src']
+            resources.srcDirs = ['src']
+            aidl.srcDirs = ['src']
+            renderscript.srcDirs = ['src']
+            res.srcDirs = ['res']
+            assets.srcDirs = ['assets']
+        }
+
+        instrumentTest.setRoot('tests')
+    }
+}
+
+android {
+    buildToolsVersion "19.0.3"
+    compileSdkVersion 19
+    
+     sourceSets {
+        main {
+            manifest.srcFile 'AndroidManifest.xml'
+            java.srcDirs = ['src']
+            resources.srcDirs = ['src']
+            aidl.srcDirs = ['src']
+            renderscript.srcDirs = ['src']
+            res.srcDirs = ['res']
+            assets.srcDirs = ['assets']
+        }
+
+        instrumentTest.setRoot('tests')
+    }
+}
+
+task run(type:Exec){
+	commandLine 'cmd', '/c', 'adb -d shell input keyevent 26 && adb -d shell input swipe 10 100 100 300 && adb -d shell am start -n com.adc.criminalintent/.CrimeListActivity'
+}
