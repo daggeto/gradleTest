@@ -12,9 +12,6 @@ buildscript {
 
 repositories {
     mavenCentral()
-    maven {
-        url 'C:\\Users\\daggreto\\.m2\\repository'
-    }
 }
 apply plugin: 'android'
 
